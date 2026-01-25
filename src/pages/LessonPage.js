@@ -18,6 +18,17 @@ export default function LessonPage() {
   const [hasRecorded, setHasRecorded] = useState(false);
   const [isPlayingNative, setIsPlayingNative] = useState(false);
 
+  // Speech recognition state
+  const [recognitionResult, setRecognitionResult] = useState(null);
+  const [isRecognizing, setIsRecognizing] = useState(false);
+
+  // Quiz state
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
+  const [quizScore, setQuizScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showQuizFeedback, setShowQuizFeedback] = useState(false);
+
   const currentExchange = dialogue?.exchanges[currentExchangeIndex];
   const totalExchanges = dialogue?.exchanges.length || 0;
   const isLearnerTurn = currentExchange?.speaker === 'learner';
@@ -77,6 +88,26 @@ export default function LessonPage() {
     }
   };
 
+  const handleCheckPronunciation = async () => {
+    if (!recordingUri) return;
+
+    try {
+      setIsRecognizing(true);
+      const result = await audioService.recognizeSpeech(currentExchange.german);
+      setRecognitionResult(result);
+      setIsRecognizing(false);
+    } catch (error) {
+      alert(error.message || 'Speech recognition failed. Make sure you are using Chrome.');
+      setIsRecognizing(false);
+    }
+  };
+
+  const getSimilarityColor = (similarity) => {
+    if (similarity >= 80) return '#4CAF50'; // green
+    if (similarity >= 60) return '#FF9800'; // orange
+    return '#f44336'; // red
+  };
+
   const handleNext = async () => {
     // Award XP for completing this exchange
     await addExchangeXP();
@@ -85,11 +116,37 @@ export default function LessonPage() {
       setCurrentExchangeIndex(prev => prev + 1);
       setRecordingUri(null);
       setHasRecorded(false);
+      setRecognitionResult(null);
     } else {
-      // Dialogue complete
-      await completeDialogue(dialogueId);
-      navigate(`/session-complete/${dialogueId}`);
+      // Dialogue complete - show quiz
+      setShowQuiz(true);
     }
+  };
+
+  const handleQuizAnswer = async (answerIndex) => {
+    const currentQuestion = dialogue.quiz[currentQuizIndex];
+    const isCorrect = answerIndex === currentQuestion.correct;
+
+    setSelectedAnswer(answerIndex);
+    setShowQuizFeedback(true);
+
+    if (isCorrect) {
+      setQuizScore(prev => prev + 1);
+    }
+
+    // Wait 1.5 seconds to show feedback, then move to next question or finish
+    setTimeout(() => {
+      if (currentQuizIndex < dialogue.quiz.length - 1) {
+        setCurrentQuizIndex(prev => prev + 1);
+        setSelectedAnswer(null);
+        setShowQuizFeedback(false);
+      } else {
+        // Quiz complete - award bonus XP and navigate
+        addExchangeXP(); // bonus for quiz completion
+        completeDialogue(dialogueId);
+        navigate(`/session-complete/${dialogueId}`);
+      }
+    }, 1500);
   };
 
   if (!dialogue) {
@@ -185,19 +242,107 @@ export default function LessonPage() {
                 >
                   🔄 Record Again
                 </button>
+                <button
+                  className="check-pronunciation-button"
+                  onClick={handleCheckPronunciation}
+                  disabled={isRecognizing}
+                >
+                  {isRecognizing ? '🎤 Checking...' : '✓ Check My Pronunciation'}
+                </button>
+              </div>
+            )}
+
+            {/* Pronunciation Results */}
+            {recognitionResult && (
+              <div className="pronunciation-results">
+                <div className="pronunciation-title">Pronunciation Check:</div>
+                <div className="pronunciation-score" style={{ color: getSimilarityColor(recognitionResult.similarity) }}>
+                  {recognitionResult.similarity}% Match
+                </div>
+                <div className="pronunciation-comparison">
+                  <div className="pronunciation-row">
+                    <span className="pronunciation-label">You said:</span>
+                    <span className="pronunciation-text">{recognitionResult.recognized}</span>
+                  </div>
+                  <div className="pronunciation-row">
+                    <span className="pronunciation-label">Expected:</span>
+                    <span className="pronunciation-text">{recognitionResult.expected}</span>
+                  </div>
+                </div>
+                {recognitionResult.similarity >= 80 && (
+                  <div className="pronunciation-feedback success">🎉 Excellent pronunciation!</div>
+                )}
+                {recognitionResult.similarity >= 60 && recognitionResult.similarity < 80 && (
+                  <div className="pronunciation-feedback good">👍 Good! Keep practicing!</div>
+                )}
+                {recognitionResult.similarity < 60 && (
+                  <div className="pronunciation-feedback needs-work">💪 Try again - listen carefully to the native audio</div>
+                )}
               </div>
             )}
           </div>
         )}
 
-        {/* Next Button */}
-        <button
-          className={`next-button ${(isLearnerTurn && !hasRecorded) ? 'next-button-disabled' : ''}`}
-          onClick={handleNext}
-          disabled={isLearnerTurn && !hasRecorded}
-        >
-          {currentExchangeIndex < totalExchanges - 1 ? 'Next Exchange →' : 'Complete Session ✓'}
-        </button>
+        {/* Quiz Section */}
+        {showQuiz && dialogue.quiz && dialogue.quiz.length > 0 && (
+          <div className="quiz-section">
+            <div className="quiz-header">
+              <div className="quiz-title">📝 Quick Quiz</div>
+              <div className="quiz-progress">
+                Question {currentQuizIndex + 1} of {dialogue.quiz.length}
+              </div>
+            </div>
+
+            <div className="quiz-question">
+              {dialogue.quiz[currentQuizIndex].question}
+            </div>
+
+            <div className="quiz-options">
+              {dialogue.quiz[currentQuizIndex].options.map((option, index) => {
+                const isSelected = selectedAnswer === index;
+                const isCorrect = index === dialogue.quiz[currentQuizIndex].correct;
+                const showResult = showQuizFeedback;
+
+                let buttonClass = 'quiz-option';
+                if (showResult && isCorrect) {
+                  buttonClass += ' quiz-option-correct';
+                } else if (showResult && isSelected && !isCorrect) {
+                  buttonClass += ' quiz-option-wrong';
+                }
+
+                return (
+                  <button
+                    key={index}
+                    className={buttonClass}
+                    onClick={() => handleQuizAnswer(index)}
+                    disabled={showQuizFeedback}
+                  >
+                    {option}
+                    {showResult && isCorrect && ' ✓'}
+                    {showResult && isSelected && !isCorrect && ' ✗'}
+                  </button>
+                );
+              })}
+            </div>
+
+            {showQuizFeedback && (
+              <div className="quiz-score-display">
+                Score: {quizScore} / {currentQuizIndex + 1}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Next Button - only show when not in quiz mode */}
+        {!showQuiz && (
+          <button
+            className={`next-button ${(isLearnerTurn && !hasRecorded) ? 'next-button-disabled' : ''}`}
+            onClick={handleNext}
+            disabled={isLearnerTurn && !hasRecorded}
+          >
+            {currentExchangeIndex < totalExchanges - 1 ? 'Next Exchange →' : 'Complete Session ✓'}
+          </button>
+        )}
       </div>
     </div>
   );

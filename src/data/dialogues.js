@@ -5,6 +5,23 @@ export const dialogues = [
     title: "Coffee Shop Order",
     difficulty: "A1",
     category: "daily",
+    quiz: [
+      {
+        question: "What does 'haste' mean in Berlin German?",
+        options: ["hast du (do you have)", "haben sie (do they have)", "hat er (does he have)", "hatte ich (I had)"],
+        correct: 0
+      },
+      {
+        question: "How do you say 'what' in Berlin dialect?",
+        options: ["was", "wat", "wer", "wo"],
+        correct: 1
+      },
+      {
+        question: "What is 'fuffzich'?",
+        options: ["fifteen", "forty", "fifty", "five"],
+        correct: 2
+      }
+    ],
     exchanges: [
       {
         id: 1,
@@ -48,6 +65,28 @@ export const dialogues = [
     title: "U-Bahn Small Talk",
     difficulty: "A2",
     category: "transport",
+    quiz: [
+      {
+        question: "What does 'musste' mean in Berlin German?",
+        options: ["musst du (you must)", "muss ich (I must)", "muss er (he must)", "müssen wir (we must)"],
+        correct: 0
+      },
+      {
+        question: "What is the Berlin dialect word for 'nein' (no)?",
+        options: ["nee", "ne", "nö", "nich"],
+        correct: 1
+      },
+      {
+        question: "What does 'keen' mean in Berlin dialect?",
+        options: ["klein (small)", "kein (no/none)", "können (can)", "kennen (to know)"],
+        correct: 1
+      },
+      {
+        question: "In the dialogue, where do you need to change trains?",
+        options: ["Alexanderplatz", "Wedding", "After two stations", "At the end"],
+        correct: 1
+      }
+    ],
     exchanges: [
       {
         id: 1,
@@ -84,6 +123,28 @@ export const dialogues = [
     title: "Meeting at a Bar",
     difficulty: "A2",
     category: "social",
+    quiz: [
+      {
+        question: "What is a 'Späti' in Berlin?",
+        options: ["A late-night bus", "A late-night convenience store", "A late-night restaurant", "A bar that opens late"],
+        correct: 1
+      },
+      {
+        question: "What does 'Biste' mean?",
+        options: ["Bist du (are you)", "Bis du (until you)", "Bitte (please)", "Beste (best)"],
+        correct: 0
+      },
+      {
+        question: "How do you say 'ein gutes' (a good) in Berlin dialect?",
+        options: ["een jutes", "ein jut", "een gut", "ick jut"],
+        correct: 0
+      },
+      {
+        question: "What does 'Logo' mean in Berlin slang?",
+        options: ["Maybe", "Of course", "I don't know", "Goodbye"],
+        correct: 1
+      }
+    ],
     exchanges: [
       {
         id: 1,
@@ -127,6 +188,28 @@ export const dialogues = [
     title: "Immigration Interview - Personal Info",
     difficulty: "B1",
     category: "immigration",
+    quiz: [
+      {
+        question: "What is the formal 'you' form in German that you must use in an immigration interview?",
+        options: ["du", "Sie", "ihr", "dich"],
+        correct: 1
+      },
+      {
+        question: "What does 'Daueraufenthalt' mean?",
+        options: ["Temporary residence", "Permanent residence", "Tourist visa", "Work permit"],
+        correct: 1
+      },
+      {
+        question: "What does 'Postleitzahl' mean?",
+        options: ["Post office", "Postal code", "Mailing address", "Street number"],
+        correct: 1
+      },
+      {
+        question: "What information should you be ready to provide about where you live?",
+        options: ["Only the city name", "Only the street name", "Full address including postal code", "Just the neighborhood"],
+        correct: 2
+      }
+    ],
     exchanges: [
       {
         id: 1,
@@ -177,6 +260,28 @@ export const dialogues = [
     title: "Immigration Interview - Work Situation",
     difficulty: "B1",
     category: "immigration",
+    quiz: [
+      {
+        question: "What does 'entlassen' mean?",
+        options: ["Hired", "Promoted", "Laid off/made redundant", "Retired"],
+        correct: 2
+      },
+      {
+        question: "What is 'Arbeitslosengeld'?",
+        options: ["Work permit", "Salary", "Unemployment benefits", "Tax refund"],
+        correct: 2
+      },
+      {
+        question: "What does 'Stelle' mean in this context?",
+        options: ["Place", "Position/job", "Office", "Situation"],
+        correct: 1
+      },
+      {
+        question: "If asked about your work situation during unemployment, what should you emphasize?",
+        options: ["That you're on vacation", "That you're actively looking for work", "That you don't need to work", "That you're thinking about it"],
+        correct: 1
+      }
+    ],
     exchanges: [
       {
         id: 1,
@@ -227,6 +332,28 @@ export const dialogues = [
     title: "Immigration Interview - Integration",
     difficulty: "B1",
     category: "immigration",
+    quiz: [
+      {
+        question: "What does 'Alltag' mean?",
+        options: ["All day", "Daily life/everyday", "Always", "Old days"],
+        correct: 1
+      },
+      {
+        question: "What does 'beitragen' mean?",
+        options: ["To leave", "To contribute", "To complain", "To belong"],
+        correct: 1
+      },
+      {
+        question: "What is 'Zuhause'?",
+        options: ["House", "Home", "Apartment", "Family"],
+        correct: 1
+      },
+      {
+        question: "When asked why you want to stay in Germany, what should you emphasize?",
+        options: ["Better weather than your home country", "Long-term commitment and integration", "Tourist attractions", "Temporary work opportunity"],
+        correct: 1
+      }
+    ],
     exchanges: [
       {
         id: 1,
