@@ -4,22 +4,21 @@ import { useApp } from '../contexts/AppContext';
 import './SessionCompletePage.css';
 
 export default function SessionCompletePage() {
-  const { dialogueId } = useParams();
   const navigate = useNavigate();
-  const { completeSession, streak, xp } = useApp();
+  const { completeSession } = useApp();
   const [sessionData, setSessionData] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const finishSession = async () => {
+      const data = await completeSession();
+      setSessionData(data);
+    };
+
     finishSession();
     // Trigger animation after component mounts
     setTimeout(() => setIsVisible(true), 100);
-  }, []);
-
-  const finishSession = async () => {
-    const data = await completeSession();
-    setSessionData(data);
-  };
+  }, [completeSession]);
 
   const handleContinue = () => {
     navigate('/');

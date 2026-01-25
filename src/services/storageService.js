@@ -202,4 +202,5 @@ class StorageService {
   }
 }
 
-export default new StorageService();
+const storageServiceInstance = new StorageService();
+export default storageServiceInstance;

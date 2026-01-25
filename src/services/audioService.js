@@ -105,4 +105,5 @@ class AudioService {
   }
 }
 
-export default new AudioService();
+const audioServiceInstance = new AudioService();
+export default audioServiceInstance;
