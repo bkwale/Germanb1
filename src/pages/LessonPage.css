@@ -1,0 +1,195 @@
+.lesson-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ECF0F1;
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  border-bottom: 2px solid #BDC3C7;
+}
+
+.progress-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+.lesson-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.dialogue-box {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.speaker-label {
+  background-color: #3498DB;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.speaker-text {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.german-text-container {
+  margin-bottom: 15px;
+}
+
+.german-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2C3E50;
+  margin-bottom: 8px;
+}
+
+.audio-hint {
+  font-size: 14px;
+  color: #3498DB;
+  font-style: italic;
+}
+
+.english-text {
+  font-size: 18px;
+  color: #7F8C8D;
+}
+
+.tips-container {
+  background-color: #FFF3CD;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.tips-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #856404;
+  margin-bottom: 8px;
+}
+
+.tip-text {
+  font-size: 14px;
+  color: #856404;
+  margin-bottom: 4px;
+}
+
+.recording-section {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recording-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2C3E50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.record-button {
+  background-color: #E74C3C;
+  border-radius: 30px;
+  padding: 18px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.record-button:hover {
+  background-color: #C0392B;
+}
+
+.stop-button {
+  background-color: #C0392B;
+}
+
+.playback-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playback-button {
+  background-color: #3498DB;
+  border-radius: 30px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.playback-button:hover {
+  background-color: #2980B9;
+}
+
+.re-record-button {
+  background-color: #95A5A6;
+  border-radius: 30px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.re-record-button:hover {
+  background-color: #7F8C8D;
+}
+
+.next-button {
+  background-color: #27AE60;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.next-button:hover:not(:disabled) {
+  background-color: #229954;
+}
+
+.next-button-disabled {
+  background-color: #BDC3C7;
+  cursor: not-allowed;
+}
+
+.error-text {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 50px;
+  color: #E74C3C;
+}
