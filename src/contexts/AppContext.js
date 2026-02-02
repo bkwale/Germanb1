@@ -10,8 +10,12 @@ export const AppProvider = ({ children }) => {
   const [progress, setProgress] = useState({
     completedDialogues: [],
     weakAreas: [],
-    vocabularyCount: 0
+    vocabularyCount: 0,
+    skillLevel: 0,
+    totalQuizScore: 0,
+    totalQuizQuestions: 0
   });
+  const [skillLevel, setSkillLevel] = useState(0);
   const [settings, setSettings] = useState({
     berlinDialect: true,
     audioSpeed: 1.0,
@@ -43,6 +47,7 @@ export const AppProvider = ({ children }) => {
       setProgress(loadedProgress);
       setSettings(loadedSettings);
       setWeeklyStats(loadedWeekly);
+      setSkillLevel(loadedProgress.skillLevel || 0);
     } catch (error) {
       console.error('Error loading data:', error);
     } finally {
@@ -111,17 +116,32 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const updateSkillLevel = async (quizScore, totalQuestions, pronunciationScore = 0) => {
+    try {
+      const newLevel = await storageService.updateSkillLevel(quizScore, totalQuestions, pronunciationScore);
+      setSkillLevel(newLevel);
+      const updatedProgress = await storageService.getProgress();
+      setProgress(updatedProgress);
+      return newLevel;
+    } catch (error) {
+      console.error('Error updating skill level:', error);
+      return skillLevel;
+    }
+  };
+
   const value = {
     streak,
     xp,
     progress,
     settings,
     weeklyStats,
+    skillLevel,
     loading,
     completeDialogue,
     completeSession,
     addExchangeXP,
     updateSettings,
+    updateSkillLevel,
     refreshData: loadData
   };
 

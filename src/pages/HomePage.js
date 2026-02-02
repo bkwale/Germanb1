@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
 import { dialogues, BADGES } from '../data/dialogues';
+import SkillProgressBar from '../components/SkillProgressBar';
 import './HomePage.css';
 
 export default function HomePage() {
@@ -21,6 +22,8 @@ export default function HomePage() {
 
   return (
     <div className="home-container">
+      <SkillProgressBar />
+
       <div className="home-content">
         {/* Stats Header */}
         <div className="stats-container">

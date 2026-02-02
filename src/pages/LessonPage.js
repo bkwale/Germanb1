@@ -4,12 +4,13 @@ import { useApp } from '../contexts/AppContext';
 import { dialogues } from '../data/dialogues';
 import audioService from '../services/audioService';
 import SessionTimer from '../components/SessionTimer';
+import SkillProgressBar from '../components/SkillProgressBar';
 import './LessonPage.css';
 
 export default function LessonPage() {
   const { dialogueId } = useParams();
   const navigate = useNavigate();
-  const { addExchangeXP, completeDialogue, settings } = useApp();
+  const { addExchangeXP, completeDialogue, settings, updateSkillLevel } = useApp();
 
   const dialogue = dialogues.find(d => d.id === parseInt(dialogueId));
   const [currentExchangeIndex, setCurrentExchangeIndex] = useState(0);
@@ -135,13 +136,20 @@ export default function LessonPage() {
     }
 
     // Wait 1.5 seconds to show feedback, then move to next question or finish
-    setTimeout(() => {
+    setTimeout(async () => {
       if (currentQuizIndex < dialogue.quiz.length - 1) {
         setCurrentQuizIndex(prev => prev + 1);
         setSelectedAnswer(null);
         setShowQuizFeedback(false);
       } else {
-        // Quiz complete - award bonus XP and navigate
+        // Quiz complete - update skill level based on performance
+        const finalScore = isCorrect ? quizScore + 1 : quizScore;
+        const totalQuestions = dialogue.quiz.length;
+        const avgPronunciation = recognitionResult?.similarity || 0;
+
+        await updateSkillLevel(finalScore, totalQuestions, avgPronunciation);
+
+        // Award bonus XP and navigate
         addExchangeXP(); // bonus for quiz completion
         completeDialogue(dialogueId);
         navigate(`/session-complete/${dialogueId}`);
@@ -159,6 +167,8 @@ export default function LessonPage() {
 
   return (
     <div className="lesson-container">
+      <SkillProgressBar />
+
       <div className="lesson-header">
         <SessionTimer />
         <div className="progress-text">

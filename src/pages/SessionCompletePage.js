@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
+import SkillProgressBar from '../components/SkillProgressBar';
 import './SessionCompletePage.css';
 
 export default function SessionCompletePage() {
@@ -38,6 +39,8 @@ export default function SessionCompletePage() {
 
   return (
     <div className="session-complete-container">
+      <SkillProgressBar />
+
       <div className={`session-complete-content ${isVisible ? 'visible' : ''}`}>
         {/* Celebration Header */}
         <div className="emoji">🎉</div>

@@ -8,14 +8,20 @@ class StorageService {
       return data ? JSON.parse(data) : {
         completedDialogues: [],
         weakAreas: [],
-        vocabularyCount: 0
+        vocabularyCount: 0,
+        skillLevel: 0, // 0-100 scale (0=A1 beginner, 100=B1 proficient)
+        totalQuizScore: 0,
+        totalQuizQuestions: 0
       };
     } catch (error) {
       console.error('Error getting progress:', error);
       return {
         completedDialogues: [],
         weakAreas: [],
-        vocabularyCount: 0
+        vocabularyCount: 0,
+        skillLevel: 0,
+        totalQuizScore: 0,
+        totalQuizQuestions: 0
       };
     }
   }
@@ -152,6 +158,40 @@ class StorageService {
     } catch (error) {
       console.error('Error marking dialogue complete:', error);
     }
+  }
+
+  // Update skill level based on quiz performance
+  updateSkillLevel(quizScore, totalQuestions, pronunciationScore = 0) {
+    try {
+      const progress = this.getProgress();
+
+      // Update quiz totals
+      progress.totalQuizScore += quizScore;
+      progress.totalQuizQuestions += totalQuestions;
+
+      // Calculate skill level (0-100)
+      // Formula: Base from quiz accuracy + bonus from pronunciation + completed dialogues bonus
+      const quizAccuracy = progress.totalQuizQuestions > 0
+        ? (progress.totalQuizScore / progress.totalQuizQuestions) * 60 // Max 60 points from quizzes
+        : 0;
+
+      const pronunciationBonus = pronunciationScore >= 80 ? 10 : pronunciationScore >= 60 ? 5 : 0;
+      const completionBonus = Math.min(progress.completedDialogues.length * 5, 30); // Max 30 points from completing dialogues
+
+      progress.skillLevel = Math.min(100, Math.round(quizAccuracy + pronunciationBonus + completionBonus));
+
+      this.saveProgress(progress);
+      return progress.skillLevel;
+    } catch (error) {
+      console.error('Error updating skill level:', error);
+      return 0;
+    }
+  }
+
+  // Get current skill level
+  getSkillLevel() {
+    const progress = this.getProgress();
+    return progress.skillLevel || 0;
   }
 
   // Weekly stats
