@@ -58,6 +58,55 @@ export const dialogues = [
         english: "Three fifty. You paying cash or card?",
         speaker: "barista",
         tips: ["'fuffzich' = 'fünfzig' (fifty)", "'Machste' = 'Machst du'"]
+      },
+      {
+        id: 6,
+        german: "Karte, bitte. Habt ihr och was zu essen?",
+        english: "Card, please. Do you also have something to eat?",
+        speaker: "learner",
+        tips: ["'Habt ihr' = do you have", "'och' = 'auch' (also)"]
+      },
+      {
+        id: 7,
+        german: "Jo, haben wa Croissants und Brötchen. Willste eins?",
+        english: "Yeah, we have croissants and bread rolls. Want one?",
+        speaker: "barista",
+        tips: ["'Jo' = casual yes", "'Willste' = 'Willst du'", "'Brötchen' = bread rolls"]
+      },
+      {
+        id: 8,
+        german: "Ja, een Croissant wär jut. Mit Butter?",
+        english: "Yes, a croissant would be good. With butter?",
+        speaker: "learner",
+        tips: ["'een' = 'ein' (a)", "'wär' = 'wäre' (would be)", "'jut' = 'gut' (good)"]
+      },
+      {
+        id: 9,
+        german: "Logo! Kommt sofort. Setz dich ma hin, ick bring dir det.",
+        english: "Of course! Coming right up. Have a seat, I'll bring it to you.",
+        speaker: "barista",
+        tips: ["'Logo' = of course (slang)", "'ma' = 'mal' (just)", "'Setz dich' = sit down"]
+      },
+      {
+        id: 10,
+        german: "Danke! Kannste mir och noch Zucker bringen?",
+        english: "Thanks! Can you also bring me sugar?",
+        speaker: "learner",
+        tips: ["'Kannste' = 'Kannst du' (can you)", "Polite request"]
+      },
+      {
+        id: 11,
+        german: "Klar, keen Problem. Steht aber och vorne am Tresen.",
+        english: "Sure, no problem. But it's also at the counter up front.",
+        speaker: "barista",
+        tips: ["'keen' = 'kein' (no)", "'Tresen' = counter"]
+      },
+      {
+        id: 12,
+        german: "Ah, seh ick. Danke dir! Bis dann!",
+        english: "Ah, I see it. Thank you! See you later!",
+        speaker: "learner",
+        tips: ["'seh ick' = 'sehe ich' (I see)", "'Bis dann' = see you later"]
       }
     ]
   },
@@ -117,6 +166,76 @@ export const dialogues = [
         english: "Nah, I'm getting off before. But no problem.",
         speaker: "stranger",
         tips: ["'Ne' = 'Nein'", "'keen' = 'kein' (Berlin dialect)"]
+      },
+      {
+        id: 5,
+        german: "Biste neu in Berlin? Dein Deutsch klingt jut!",
+        english: "Are you new in Berlin? Your German sounds good!",
+        speaker: "stranger",
+        tips: ["'Biste' = 'Bist du'", "'jut' = 'gut'", "Friendly compliment"]
+      },
+      {
+        id: 6,
+        german: "Ja, erst seit ein paar Monaten. Ick lerne noch.",
+        english: "Yes, only been here a few months. I'm still learning.",
+        speaker: "learner",
+        tips: ["Using 'ick' shows you're adapting", "Humble response"]
+      },
+      {
+        id: 7,
+        german: "Ach wat, det läuft doch schon janz jut! Woher kommste denn?",
+        english: "Oh come on, it's going really well already! Where are you from?",
+        speaker: "stranger",
+        tips: ["'Ach wat' = oh come on", "'det' = 'das'", "'janz' = 'ganz'", "'kommste' = 'kommst du'"]
+      },
+      {
+        id: 8,
+        german: "Aus England. Und du? Biste Berliner?",
+        english: "From England. And you? Are you a Berliner?",
+        speaker: "learner",
+        tips: ["Simple response works fine", "Turning the question back"]
+      },
+      {
+        id: 9,
+        german: "Jo, bin hier jeboren. Wedding is mein Kiez.",
+        english: "Yeah, born here. Wedding is my neighborhood.",
+        speaker: "stranger",
+        tips: ["'jeboren' = 'geboren' (born)", "'Kiez' = neighborhood (Berlin slang)"]
+      },
+      {
+        id: 10,
+        german: "Cool! Kannste mir vielleicht noch was erklären über Wedding?",
+        english: "Cool! Can you maybe explain something to me about Wedding?",
+        speaker: "learner",
+        tips: ["'Kannste' = 'Kannst du'", "Asking for local knowledge"]
+      },
+      {
+        id: 11,
+        german: "Klar! Wat willste denn wissen? Is ne jute Gegend.",
+        english: "Sure! What do you want to know? It's a good area.",
+        speaker: "stranger",
+        tips: ["'Wat' = 'Was'", "'ne' = 'eine'", "'Gegend' = area"]
+      },
+      {
+        id: 12,
+        german: "Jibt's da jute Restaurants oder Cafés?",
+        english: "Are there good restaurants or cafés there?",
+        speaker: "learner",
+        tips: ["'Jibt's' = 'Gibt es' (are there)", "'jute' = 'gute'"]
+      },
+      {
+        id: 13,
+        german: "Logo! Ick zeig dir ma paar Orte, wenn de willst.",
+        english: "Of course! I'll show you a few places if you want.",
+        speaker: "stranger",
+        tips: ["'Logo' = of course", "'ma' = 'mal'", "'de' = 'du'"]
+      },
+      {
+        id: 14,
+        german: "Echt? Det wär super! Hier is meine Nummer.",
+        english: "Really? That would be great! Here's my number.",
+        speaker: "learner",
+        tips: ["'Echt' = really", "'det' = 'das'", "'wär' = 'wäre'"]
       }
     ]
   },
@@ -183,6 +302,69 @@ export const dialogues = [
         english: "Of course! Right around the corner. Come on, I'll show you.",
         speaker: "stranger",
         tips: ["'Logo' = 'of course' (slang)", "'de' = 'die'", "'det' = 'das'"]
+      },
+      {
+        id: 6,
+        german: "Super! Und wat machste so hier in Berlin?",
+        english: "Great! And what do you do here in Berlin?",
+        speaker: "learner",
+        tips: ["'wat' = 'was'", "'machste' = 'machst du'", "Getting to know someone"]
+      },
+      {
+        id: 7,
+        german: "Ick arbeite in nem Startup. Und du? Studierste oder arbeitest du?",
+        english: "I work at a startup. And you? Are you studying or working?",
+        speaker: "stranger",
+        tips: ["'nem' = 'einem' (a)", "'Studierste' = 'Studierst du'"]
+      },
+      {
+        id: 8,
+        german: "Ick arbeite bei Orderbird. Oder hab da jearbeitet bis letzte Monat.",
+        english: "I work at Orderbird. Or worked there until last month.",
+        speaker: "learner",
+        tips: ["'jearbeitet' = 'gearbeitet' (worked)", "Sharing personal info"]
+      },
+      {
+        id: 9,
+        german: "Ach so. Suchste jetzt ne neue Stelle?",
+        english: "I see. Are you looking for a new position now?",
+        speaker: "stranger",
+        tips: ["'Ach so' = I see", "'Suchste' = 'Suchst du'", "'ne' = 'eine'"]
+      },
+      {
+        id: 10,
+        german: "Ja, genau. Kennste vielleicht Firmen, die einstellen?",
+        english: "Yes, exactly. Do you maybe know companies that are hiring?",
+        speaker: "learner",
+        tips: ["'Kennste' = 'Kennst du'", "'einstellen' = hiring"]
+      },
+      {
+        id: 11,
+        german: "Hmm, lass ma überlegen. Wat für Jobs suchste denn?",
+        english: "Hmm, let me think. What kind of jobs are you looking for?",
+        speaker: "stranger",
+        tips: ["'lass ma' = 'lass mal' (let me)", "'wat für' = what kind of"]
+      },
+      {
+        id: 12,
+        german: "Am liebsten wieder in Tech. Ick kann programmieren.",
+        english: "Preferably in tech again. I can program.",
+        speaker: "learner",
+        tips: ["'Am liebsten' = preferably", "Expressing preference"]
+      },
+      {
+        id: 13,
+        german: "Ach jut! Wir suchen jerade Leute. Willste ma mit meinem Chef reden?",
+        english: "Oh good! We're actually looking for people. Want to talk to my boss?",
+        speaker: "stranger",
+        tips: ["'jut' = 'gut'", "'jerade' = 'gerade' (actually)", "'ma' = 'mal'"]
+      },
+      {
+        id: 14,
+        german: "Echt jetzt? Det wär hammer! Gib mir ma deine Nummer!",
+        english: "Really? That would be awesome! Give me your number!",
+        speaker: "learner",
+        tips: ["'Echt jetzt' = really now", "'hammer' = awesome (slang)", "'ma' = 'mal'"]
       }
     ]
   },
@@ -256,6 +438,76 @@ export const dialogues = [
         english: "Yes, I'm married. My wife and I have a son.",
         speaker: "learner",
         tips: ["'Frau' = wife", "'Sohn' = son", "Keep it simple and clear"]
+      },
+      {
+        id: 7,
+        german: "Wie alt ist Ihr Sohn?",
+        english: "How old is your son?",
+        speaker: "officer",
+        tips: ["Common follow-up question", "Be ready with age"]
+      },
+      {
+        id: 8,
+        german: "Er ist drei Jahre alt.",
+        english: "He is three years old.",
+        speaker: "learner",
+        tips: ["Simple, direct answer", "'Jahre alt' = years old"]
+      },
+      {
+        id: 9,
+        german: "Wann sind Sie nach Deutschland gekommen?",
+        english: "When did you come to Germany?",
+        speaker: "officer",
+        tips: ["'Wann' = when", "'gekommen' = came (past tense)"]
+      },
+      {
+        id: 10,
+        german: "Ich bin vor fünf Jahren nach Deutschland gekommen, im Jahr zweitausendzwanzig.",
+        english: "I came to Germany five years ago, in the year 2020.",
+        speaker: "learner",
+        tips: ["'vor' = ago", "Practice your specific year"]
+      },
+      {
+        id: 11,
+        german: "Haben Sie einen deutschen Pass oder einen anderen Pass?",
+        english: "Do you have a German passport or another passport?",
+        speaker: "officer",
+        tips: ["'Pass' = passport", "Standard question"]
+      },
+      {
+        id: 12,
+        german: "Ich habe einen britischen Pass. Ich beantrage jetzt meinen Daueraufenthalt.",
+        english: "I have a British passport. I'm applying for my permanent residence now.",
+        speaker: "learner",
+        tips: ["'beantrage' = am applying for", "State your nationality"]
+      },
+      {
+        id: 13,
+        german: "Wo wurden Sie geboren?",
+        english: "Where were you born?",
+        speaker: "officer",
+        tips: ["'wurden Sie geboren' = were you born"]
+      },
+      {
+        id: 14,
+        german: "Ich wurde in London geboren.",
+        english: "I was born in London.",
+        speaker: "learner",
+        tips: ["'wurde geboren' = was born", "State your birthplace"]
+      },
+      {
+        id: 15,
+        german: "Und Ihre Frau? Ist sie auch aus England?",
+        english: "And your wife? Is she also from England?",
+        speaker: "officer",
+        tips: ["Questions about spouse are common"]
+      },
+      {
+        id: 16,
+        german: "Ja, meine Frau ist auch aus England. Wir leben zusammen hier in Berlin.",
+        english: "Yes, my wife is also from England. We live together here in Berlin.",
+        speaker: "learner",
+        tips: ["'zusammen' = together", "Show family unity"]
       }
     ]
   },
@@ -329,6 +581,76 @@ export const dialogues = [
         english: "No, my wife is not currently working. She takes care of our son.",
         speaker: "learner",
         tips: ["'kümmert sich um' = takes care of", "'momentan' = currently"]
+      },
+      {
+        id: 7,
+        german: "Was haben Sie bei Orderbird gemacht? Welche Position?",
+        english: "What did you do at Orderbird? What position?",
+        speaker: "officer",
+        tips: ["Be ready to describe your job role"]
+      },
+      {
+        id: 8,
+        german: "Ich habe als Softwareentwickler gearbeitet. Ich war für die Backend-Entwicklung zuständig.",
+        english: "I worked as a software developer. I was responsible for backend development.",
+        speaker: "learner",
+        tips: ["'Softwareentwickler' = software developer", "'zuständig für' = responsible for"]
+      },
+      {
+        id: 9,
+        german: "Wie lange haben Sie dort gearbeitet?",
+        english: "How long did you work there?",
+        speaker: "officer",
+        tips: ["Common follow-up question"]
+      },
+      {
+        id: 10,
+        german: "Ich habe dort vier Jahre gearbeitet, von zweitausendeinundzwanzig bis zweitausendfünfundzwanzig.",
+        english: "I worked there for four years, from 2021 to 2025.",
+        speaker: "learner",
+        tips: ["Practice saying years in German", "Be specific with dates"]
+      },
+      {
+        id: 11,
+        german: "Haben Sie eine Arbeitsgenehmigung in Deutschland?",
+        english: "Do you have a work permit in Germany?",
+        speaker: "officer",
+        tips: ["'Arbeitsgenehmigung' = work permit"]
+      },
+      {
+        id: 12,
+        german: "Ja, ich habe eine Arbeitsgenehmigung. Ich hatte auch einen Arbeitsvertrag bei Orderbird.",
+        english: "Yes, I have a work permit. I also had an employment contract at Orderbird.",
+        speaker: "learner",
+        tips: ["'Arbeitsvertrag' = employment contract", "Show documentation readiness"]
+      },
+      {
+        id: 13,
+        german: "Warum wurden Sie entlassen?",
+        english: "Why were you laid off?",
+        speaker: "officer",
+        tips: ["Sensitive question - answer honestly but professionally"]
+      },
+      {
+        id: 14,
+        german: "Die Firma hatte wirtschaftliche Schwierigkeiten. Es war eine Umstrukturierung.",
+        english: "The company had economic difficulties. It was a restructuring.",
+        speaker: "learner",
+        tips: ["'wirtschaftliche Schwierigkeiten' = economic difficulties", "'Umstrukturierung' = restructuring"]
+      },
+      {
+        id: 15,
+        german: "Wie finanzieren Sie sich momentan?",
+        english: "How are you supporting yourself financially at the moment?",
+        speaker: "officer",
+        tips: ["'finanzieren' = finance/support", "Important question about stability"]
+      },
+      {
+        id: 16,
+        german: "Ich bekomme Arbeitslosengeld vom Jobcenter. Und ich habe auch Ersparnisse.",
+        english: "I receive unemployment benefits from the job center. And I also have savings.",
+        speaker: "learner",
+        tips: ["'Ersparnisse' = savings", "Show financial responsibility"]
       }
     ]
   },
@@ -402,6 +724,90 @@ export const dialogues = [
         english: "Germany is now my home. My family lives here, and I want to stay and continue contributing.",
         speaker: "learner",
         tips: ["'Zuhause' = home", "'beitragen' = contribute", "Show long-term commitment"]
+      },
+      {
+        id: 7,
+        german: "Haben Sie deutsche Freunde oder Bekannte?",
+        english: "Do you have German friends or acquaintances?",
+        speaker: "officer",
+        tips: ["'Bekannte' = acquaintances", "Shows social integration"]
+      },
+      {
+        id: 8,
+        german: "Ja, ich habe deutsche Freunde. Wir treffen uns regelmäßig, und sie helfen mir mit meinem Deutsch.",
+        english: "Yes, I have German friends. We meet regularly, and they help me with my German.",
+        speaker: "learner",
+        tips: ["'regelmäßig' = regularly", "Show active social integration"]
+      },
+      {
+        id: 9,
+        german: "Haben Sie einen Deutschkurs gemacht?",
+        english: "Did you take a German course?",
+        speaker: "officer",
+        tips: ["Common question about language learning"]
+      },
+      {
+        id: 10,
+        german: "Ja, ich habe einen B1-Deutschkurs gemacht und die Prüfung bestanden.",
+        english: "Yes, I took a B1 German course and passed the exam.",
+        speaker: "learner",
+        tips: ["'bestanden' = passed", "Mention your certificate if you have one"]
+      },
+      {
+        id: 11,
+        german: "Kennen Sie sich in Ihrer Nachbarschaft gut aus?",
+        english: "Do you know your neighborhood well?",
+        speaker: "officer",
+        tips: ["'Nachbarschaft' = neighborhood", "'sich auskennen' = to know one's way around"]
+      },
+      {
+        id: 12,
+        german: "Ja, ich kenne Hohenschönhausen gut. Ich gehe dort einkaufen, zum Arzt, und zum Spielplatz mit meinem Sohn.",
+        english: "Yes, I know Hohenschönhausen well. I go shopping there, to the doctor, and to the playground with my son.",
+        speaker: "learner",
+        tips: ["Show local knowledge", "'Spielplatz' = playground", "Mention specific activities"]
+      },
+      {
+        id: 13,
+        german: "Was gefällt Ihnen an Deutschland?",
+        english: "What do you like about Germany?",
+        speaker: "officer",
+        tips: ["Positive question - be genuine"]
+      },
+      {
+        id: 14,
+        german: "Mir gefällt das Bildungssystem, die Ordnung, und die gute Lebensqualität. Berlin ist eine tolle Stadt für Familien.",
+        english: "I like the education system, the order, and the good quality of life. Berlin is a great city for families.",
+        speaker: "learner",
+        tips: ["'Bildungssystem' = education system", "'Lebensqualität' = quality of life", "Be specific"]
+      },
+      {
+        id: 15,
+        german: "Haben Sie vor, hier dauerhaft zu bleiben?",
+        english: "Do you plan to stay here permanently?",
+        speaker: "officer",
+        tips: ["'vorhaben' = to plan", "'dauerhaft' = permanently"]
+      },
+      {
+        id: 16,
+        german: "Ja, absolut. Wir möchten hier bleiben. Mein Sohn geht hier zur Schule, und Deutschland ist unser Zuhause.",
+        english: "Yes, absolutely. We want to stay here. My son will go to school here, and Germany is our home.",
+        speaker: "learner",
+        tips: ["'absolut' = absolutely", "Show strong commitment", "Mention your child's future"]
+      },
+      {
+        id: 17,
+        german: "Respektieren Sie die deutschen Werte und das Grundgesetz?",
+        english: "Do you respect German values and the Basic Law?",
+        speaker: "officer",
+        tips: ["'Grundgesetz' = Basic Law/Constitution", "Important question"]
+      },
+      {
+        id: 18,
+        german: "Ja, natürlich. Ich respektiere das Grundgesetz und die demokratischen Werte Deutschlands vollständig.",
+        english: "Yes, of course. I fully respect the Basic Law and Germany's democratic values.",
+        speaker: "learner",
+        tips: ["'vollständig' = fully", "Be clear and affirmative", "This is crucial"]
       }
     ]
   },
