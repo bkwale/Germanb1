@@ -6,6 +6,7 @@ import LessonPage from './pages/LessonPage';
 import ProgressPage from './pages/ProgressPage';
 import SettingsPage from './pages/SettingsPage';
 import SessionCompletePage from './pages/SessionCompletePage';
+import InstallPrompt from './components/InstallPrompt';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/session-complete/:dialogueId" element={<SessionCompletePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
+          <InstallPrompt />
         </div>
       </Router>
     </AppProvider>
