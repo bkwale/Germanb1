@@ -95,7 +95,7 @@ class AudioService {
   }
 
   // Speech Recognition for pronunciation checking
-  async recognizeSpeech(expectedText) {
+  async recognizeSpeech(expectedText, onStart) {
     return new Promise((resolve, reject) => {
       // Check if browser supports speech recognition
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -112,8 +112,14 @@ class AudioService {
       this.recognition.maxAlternatives = 1;
 
       let finalTranscript = '';
+      let hasReceivedResult = false;
+
+      this.recognition.onstart = () => {
+        if (onStart) onStart();
+      };
 
       this.recognition.onresult = (event) => {
+        hasReceivedResult = true;
         const result = event.results[0][0];
         finalTranscript = result.transcript;
 
@@ -129,12 +135,19 @@ class AudioService {
       };
 
       this.recognition.onerror = (event) => {
-        reject(new Error(`Recognition error: ${event.error}`));
+        // If error is "no-speech", provide better message
+        if (event.error === 'no-speech') {
+          reject(new Error('No speech detected. Please speak louder and try again.'));
+        } else if (event.error === 'aborted') {
+          reject(new Error('Recognition was aborted. Please try again.'));
+        } else {
+          reject(new Error(`Recognition error: ${event.error}`));
+        }
       };
 
       this.recognition.onend = () => {
-        if (!finalTranscript) {
-          reject(new Error('No speech detected. Please try again.'));
+        if (!hasReceivedResult && !finalTranscript) {
+          reject(new Error('No speech detected. Please speak clearly and try again.'));
         }
       };
 

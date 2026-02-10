@@ -92,23 +92,27 @@ export default function LessonPage() {
   const handleCheckPronunciation = async () => {
     if (!recordingUri) return;
 
-    // Alert user to speak when prompted
-    const confirmed = window.confirm(
-      'Ready to check your pronunciation?\n\n' +
-      'When you click OK, speak the German phrase clearly into your microphone.\n\n' +
-      'The phrase is: ' + currentExchange.german
-    );
-
-    if (!confirmed) return;
-
     try {
       setIsRecognizing(true);
-      const result = await audioService.recognizeSpeech(currentExchange.german);
+
+      // Give user visual feedback before starting
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      const result = await audioService.recognizeSpeech(
+        currentExchange.german,
+        () => {
+          // Callback when recognition actually starts listening
+          console.log('Listening started...');
+        }
+      );
+
       setRecognitionResult(result);
       setIsRecognizing(false);
     } catch (error) {
+      console.error('Recognition error:', error);
       alert(error.message || 'Speech recognition failed. Make sure you are using Chrome and allow microphone access.');
       setIsRecognizing(false);
+      setRecognitionResult(null);
     }
   };
 
