@@ -19,7 +19,8 @@ export default function SessionCompletePage() {
     finishSession();
     // Trigger animation after component mounts
     setTimeout(() => setIsVisible(true), 100);
-  }, [completeSession]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array - only run once on mount to prevent infinite XP loop
 
   const handleContinue = () => {
     navigate('/');

@@ -93,6 +93,13 @@
   font-weight: bold;
   color: #2C3E50;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-icon {
+  font-size: 24px;
 }
 
 .completed-badge {

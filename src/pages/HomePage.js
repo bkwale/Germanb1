@@ -60,7 +60,10 @@ export default function HomePage() {
                 onClick={() => navigate(`/lesson/${dialogue.id}`)}
               >
                 <div className="dialogue-header">
-                  <h3 className="dialogue-title">{dialogue.title}</h3>
+                  <h3 className="dialogue-title">
+                    {dialogue.categoryIcon && <span className="category-icon">{dialogue.categoryIcon}</span>}
+                    {dialogue.title}
+                  </h3>
                   {isCompleted && <span className="completed-badge">✓</span>}
                 </div>
                 <div className="dialogue-category">{dialogue.category}</div>

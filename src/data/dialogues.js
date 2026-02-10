@@ -5,6 +5,7 @@ export const dialogues = [
     title: "Coffee Shop Order",
     difficulty: "A1",
     category: "daily",
+    categoryIcon: "☕",
     quiz: [
       {
         question: "What does 'haste' mean in Berlin German?",
@@ -65,6 +66,7 @@ export const dialogues = [
     title: "U-Bahn Small Talk",
     difficulty: "A2",
     category: "transport",
+    categoryIcon: "🚇",
     quiz: [
       {
         question: "What does 'musste' mean in Berlin German?",
@@ -123,6 +125,7 @@ export const dialogues = [
     title: "Meeting at a Bar",
     difficulty: "A2",
     category: "social",
+    categoryIcon: "🍻",
     quiz: [
       {
         question: "What is a 'Späti' in Berlin?",
@@ -188,6 +191,7 @@ export const dialogues = [
     title: "Immigration Interview - Personal Info",
     difficulty: "B1",
     category: "immigration",
+    categoryIcon: "📋",
     quiz: [
       {
         question: "What is the formal 'you' form in German that you must use in an immigration interview?",
@@ -260,6 +264,7 @@ export const dialogues = [
     title: "Immigration Interview - Work Situation",
     difficulty: "B1",
     category: "immigration",
+    categoryIcon: "💼",
     quiz: [
       {
         question: "What does 'entlassen' mean?",
@@ -332,6 +337,7 @@ export const dialogues = [
     title: "Immigration Interview - Integration",
     difficulty: "B1",
     category: "immigration",
+    categoryIcon: "🏠",
     quiz: [
       {
         question: "What does 'Alltag' mean?",
@@ -396,6 +402,183 @@ export const dialogues = [
         english: "Germany is now my home. My family lives here, and I want to stay and continue contributing.",
         speaker: "learner",
         tips: ["'Zuhause' = home", "'beitragen' = contribute", "Show long-term commitment"]
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: "Numbers 1-50",
+    difficulty: "A1",
+    category: "basics",
+    categoryIcon: "🔢",
+    quiz: [
+      {
+        question: "How do you say '7' in German?",
+        options: ["sechs", "sieben", "acht", "neun"],
+        correct: 1
+      },
+      {
+        question: "What is '23' in German?",
+        options: ["dreiundzwanzig", "zwanzigunddrei", "dreizehn", "dreiunddreizig"],
+        correct: 0
+      },
+      {
+        question: "How do you say '30'?",
+        options: ["dreißig", "dreizig", "dreizehn", "dreihundert"],
+        correct: 0
+      },
+      {
+        question: "What number is 'einundvierzig'?",
+        options: ["14", "41", "40", "31"],
+        correct: 1
+      },
+      {
+        question: "How do you say '50' in Berlin dialect?",
+        options: ["fünfzig", "fuffzich", "fünfzehn", "fuffzehn"],
+        correct: 1
+      }
+    ],
+    exchanges: [
+      {
+        id: 1,
+        german: "1 - eins, 2 - zwei, 3 - drei, 4 - vier, 5 - fünf",
+        english: "1 - one, 2 - two, 3 - three, 4 - four, 5 - five",
+        speaker: "teacher",
+        tips: ["Practice slowly", "Listen to the pronunciation"]
+      },
+      {
+        id: 2,
+        german: "6 - sechs, 7 - sieben, 8 - acht, 9 - neun, 10 - zehn",
+        english: "6 - six, 7 - seven, 8 - eight, 9 - nine, 10 - ten",
+        speaker: "teacher",
+        tips: ["'sechs' sounds like 'zex'", "'acht' has a strong 'ch' sound"]
+      },
+      {
+        id: 3,
+        german: "11 - elf, 12 - zwölf, 13 - dreizehn, 14 - vierzehn, 15 - fünfzehn",
+        english: "11 - eleven, 12 - twelve, 13 - thirteen, 14 - fourteen, 15 - fifteen",
+        speaker: "teacher",
+        tips: ["11 and 12 are irregular", "13-19 end with '-zehn'"]
+      },
+      {
+        id: 4,
+        german: "16 - sechzehn, 17 - siebzehn, 18 - achtzehn, 19 - neunzehn",
+        english: "16 - sixteen, 17 - seventeen, 18 - eighteen, 19 - nineteen",
+        speaker: "teacher",
+        tips: ["Note: 'sechzehn' (not 'sechszehn')", "'siebzehn' (not 'siebenzehn')"]
+      },
+      {
+        id: 5,
+        german: "20 - zwanzig, 21 - einundzwanzig, 22 - zweiundzwanzig, 23 - dreiundzwanzig",
+        english: "20 - twenty, 21 - twenty-one, 22 - twenty-two, 23 - twenty-three",
+        speaker: "teacher",
+        tips: ["Pattern: ones THEN tens", "'einundzwanzig' = one-and-twenty"]
+      },
+      {
+        id: 6,
+        german: "30 - dreißig, 31 - einunddreißig, 40 - vierzig, 41 - einundvierzig",
+        english: "30 - thirty, 31 - thirty-one, 40 - forty, 41 - forty-one",
+        speaker: "teacher",
+        tips: ["'dreißig' uses 'ß'", "Same pattern: ones + und + tens"]
+      },
+      {
+        id: 7,
+        german: "50 - fünfzig (or 'fuffzich' in Berlin), 42 - zweiundvierzig, 33 - dreiunddreißig",
+        english: "50 - fifty ('fuffzich' in Berlin slang), 42 - forty-two, 33 - thirty-three",
+        speaker: "teacher",
+        tips: ["Berlin: 'fuffzich' instead of 'fünfzig'", "Remember: smaller number first!"]
+      }
+    ]
+  },
+  {
+    id: 8,
+    title: "German Alphabet & Umlauts",
+    difficulty: "A1",
+    category: "basics",
+    categoryIcon: "🔤",
+    quiz: [
+      {
+        question: "How do you pronounce 'ä'?",
+        options: ["Like 'ay' in 'day'", "Like 'eh' in 'bed'", "Like 'ah' in 'father'", "Like 'ee' in 'see'"],
+        correct: 1
+      },
+      {
+        question: "What sound does 'ü' make?",
+        options: ["Like English 'u'", "Like 'oo' in 'boot'", "Like French 'u' (rounded lips, say 'ee')", "Like 'uh'"],
+        correct: 2
+      },
+      {
+        question: "How is 'ö' pronounced?",
+        options: ["Like 'o' in 'go'", "Like 'er' in 'her'", "Like 'aw' in 'law'", "Like 'oh'"],
+        correct: 1
+      },
+      {
+        question: "What is 'ß' called?",
+        options: ["Sharp S / Eszett", "Double S", "Beta", "Special B"],
+        correct: 0
+      },
+      {
+        question: "How do you say 'W' in German?",
+        options: ["Like English 'W'", "Like English 'V'", "Like 'double-u'", "Silent"],
+        correct: 1
+      }
+    ],
+    exchanges: [
+      {
+        id: 1,
+        german: "A - ah, B - beh, C - tseh, D - deh, E - eh, F - eff, G - geh",
+        english: "A - ah, B - bay, C - tsay, D - day, E - eh, F - eff, G - gay",
+        speaker: "teacher",
+        tips: ["'C' is pronounced 'tseh'", "'G' is a hard 'geh' sound"]
+      },
+      {
+        id: 2,
+        german: "H - hah, I - ee, J - yot, K - kah, L - ell, M - emm, N - enn",
+        english: "H - hah, I - ee, J - yot, K - kah, L - ell, M - emm, N - enn",
+        speaker: "teacher",
+        tips: ["'J' sounds like English 'Y'", "'I' is always 'ee' sound"]
+      },
+      {
+        id: 3,
+        german: "O - oh, P - peh, Q - kuh, R - err, S - ess, T - teh, U - ooh",
+        english: "O - oh, P - pay, Q - koo, R - air, S - ess, T - tay, U - oo",
+        speaker: "teacher",
+        tips: ["'R' is guttural in German", "'U' is like 'oo' in boot"]
+      },
+      {
+        id: 4,
+        german: "V - fau, W - veh, X - iks, Y - üpsilon, Z - tset",
+        english: "V - fow, W - vay, X - iks, Y - upsilon, Z - tset",
+        speaker: "teacher",
+        tips: ["'V' sounds like 'F'", "'W' sounds like English 'V'", "'Z' sounds like 'ts'"]
+      },
+      {
+        id: 5,
+        german: "Ä - like 'eh' in bed. Beispiel: Bär (bear), Käse (cheese)",
+        english: "Ä - like 'eh' in bed. Example: Bär (bear), Käse (cheese)",
+        speaker: "teacher",
+        tips: ["Ä is an umlaut", "Pronounce with mouth more open than 'eh'"]
+      },
+      {
+        id: 6,
+        german: "Ö - like 'er' in her. Beispiel: schön (beautiful), Köln (Cologne)",
+        english: "Ö - like 'er' in her. Example: schön (beautiful), Köln (Cologne)",
+        speaker: "teacher",
+        tips: ["Round your lips to say 'O', but say 'E'", "Common in German"]
+      },
+      {
+        id: 7,
+        german: "Ü - round lips and say 'ee'. Beispiel: über (over), Tür (door), München (Munich)",
+        english: "Ü - round lips and say 'ee'. Example: über (over), Tür (door), München (Munich)",
+        speaker: "teacher",
+        tips: ["Like French 'u'", "Pucker lips like whistling, say 'ee'"]
+      },
+      {
+        id: 8,
+        german: "ß - Eszett (sharp S). Beispiel: Straße (street), groß (big), dreißig (30)",
+        english: "ß - Eszett (sharp S). Example: Straße (street), groß (big), dreißig (30)",
+        speaker: "teacher",
+        tips: ["Sounds like 'ss'", "Only used in lowercase", "Never at start of word"]
       }
     ]
   }
