@@ -6,6 +6,7 @@ import LessonPage from './pages/LessonPage';
 import ProgressPage from './pages/ProgressPage';
 import SettingsPage from './pages/SettingsPage';
 import SessionCompletePage from './pages/SessionCompletePage';
+import MeetingPage from './pages/MeetingPage';
 import InstallPrompt from './components/InstallPrompt';
 import './App.css';
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/progress" element={<ProgressPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/session-complete/:dialogueId" element={<SessionCompletePage />} />
+            <Route path="/meeting" element={<MeetingPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <InstallPrompt />

@@ -1,0 +1,348 @@
+.meeting-container {
+  min-height: 100vh;
+  background: #ECF0F1;
+  padding-bottom: 32px;
+}
+
+.meeting-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: #2C3E50;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+.back-btn:hover { background: rgba(255,255,255,0.1); }
+
+.meeting-title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.meeting-spacer { width: 44px; }
+
+.meeting-tabs {
+  display: flex;
+  background: white;
+  border-bottom: 1px solid #e1e8ed;
+  position: sticky;
+  top: 56px;
+  z-index: 9;
+}
+
+.meeting-tab {
+  flex: 1;
+  padding: 14px 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7F8C8D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.meeting-tab.active {
+  color: #2C3E50;
+  border-bottom-color: #3498DB;
+}
+
+.meeting-tab-icon { font-size: 18px; }
+
+.meeting-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.panel-header h2 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  color: #2C3E50;
+}
+
+.panel-hint {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  color: #7F8C8D;
+}
+
+/* ---- Listen panel ---- */
+.mic-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #3498DB;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mic-btn:hover { background: #2980B9; }
+.mic-btn.recording {
+  background: #E74C3C;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(231, 76, 60, 0); }
+}
+
+.live-transcript {
+  margin-top: 16px;
+  padding: 14px;
+  background: #FFF8E1;
+  border-left: 4px solid #F39C12;
+  border-radius: 6px;
+}
+.live-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #F39C12;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.live-text {
+  font-size: 16px;
+  color: #2C3E50;
+  line-height: 1.4;
+}
+
+.translating-note {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: #7F8C8D;
+  font-style: italic;
+}
+
+.history {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  padding: 12px 14px;
+  background: #F7F9FA;
+  border-radius: 8px;
+  border-left: 3px solid #3498DB;
+}
+.history-de {
+  font-size: 15px;
+  color: #2C3E50;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.history-en {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: #95A5A6;
+  font-size: 14px;
+}
+
+/* ---- Speak panel ---- */
+.english-input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  resize: vertical;
+  min-height: 100px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.english-input:focus { border-color: #3498DB; }
+
+.translate-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #2C3E50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.translate-btn:hover:not(:disabled) { background: #1A252F; }
+.translate-btn:disabled {
+  background: #BDC3C7;
+  cursor: not-allowed;
+}
+
+.error-box {
+  margin-top: 12px;
+  padding: 12px;
+  background: #FDEDEC;
+  border-left: 4px solid #E74C3C;
+  border-radius: 6px;
+  color: #C0392B;
+  font-size: 13px;
+}
+
+.german-output {
+  margin-top: 16px;
+  padding: 18px;
+  background: linear-gradient(135deg, #E8F6F3 0%, #D5F5E3 100%);
+  border-radius: 12px;
+}
+.german-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #16A085;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.german-text {
+  font-size: 18px;
+  color: #2C3E50;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.phonetic-line {
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.phonetic-label { font-weight: 600; font-style: normal; color: #16A085; }
+
+.speak-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.speak-btn {
+  flex: 1;
+  min-width: 80px;
+  padding: 10px 14px;
+  background: white;
+  color: #2C3E50;
+  border: 1.5px solid #16A085;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+.speak-btn:hover { background: #16A085; color: white; }
+.speak-btn.stop { border-color: #E74C3C; }
+.speak-btn.stop:hover { background: #E74C3C; color: white; }
+
+/* ---- Glossary panel ---- */
+.glossary-search {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 12px;
+}
+.glossary-search:focus { border-color: #3498DB; }
+
+.glossary-cat-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.glossary-cat-tab {
+  padding: 8px 14px;
+  background: white;
+  border: 1.5px solid #e1e8ed;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.glossary-cat-tab.active {
+  background: #3498DB;
+  color: white;
+  border-color: #3498DB;
+}
+
+.glossary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.glossary-item {
+  padding: 12px 14px;
+  background: #F7F9FA;
+  border-radius: 8px;
+}
+.glossary-de {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2C3E50;
+  margin-bottom: 4px;
+}
+.glossary-speak {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.glossary-speak:hover { background: #e1e8ed; }
+.glossary-en {
+  font-size: 13px;
+  color: #7F8C8D;
+}
+
+@media (max-width: 480px) {
+  .meeting-tab { font-size: 12px; padding: 12px 4px; }
+  .meeting-tab-icon { font-size: 16px; }
+  .panel { padding: 16px; }
+}

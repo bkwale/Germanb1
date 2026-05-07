@@ -49,6 +49,22 @@ export default function HomePage() {
           </p>
         </div>
 
+        {/* Meeting Mode CTA */}
+        <div
+          className="meeting-mode-card"
+          onClick={() => navigate('/meeting')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') navigate('/meeting'); }}
+        >
+          <div className="meeting-mode-icon">🎙️</div>
+          <div className="meeting-mode-text">
+            <div className="meeting-mode-title">Meeting Mode</div>
+            <div className="meeting-mode-sub">Live German ↔ English interpreter for real conversations</div>
+          </div>
+          <div className="meeting-mode-arrow">→</div>
+        </div>
+
         {/* Dialogue Cards */}
         <div className="dialogues-container">
           {dialogues.map((dialogue) => {
