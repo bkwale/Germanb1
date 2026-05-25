@@ -43,6 +43,26 @@ export default function MeetingPage() {
   }, []);
 
   // ===== Listen logic =====
+  // Collapse repeated words/phrases (Android Chrome re-emits finals as it grows them,
+  // so we can end up with "Beamter Beamter vielen Beamter vielen Dank...").
+  const dedupeText = (text) => {
+    if (!text) return '';
+    let cleaned = text.trim().replace(/\s+/g, ' ');
+    let prev = '';
+    let iters = 0;
+    while (cleaned !== prev && iters < 20) {
+      prev = cleaned;
+      iters += 1;
+      // For phrase lengths 5 down to 1, collapse "X X" → "X" (case-insensitive).
+      for (let n = 5; n >= 1; n--) {
+        const pattern = new RegExp(`\\b((?:\\w+\\b\\s*){${n}})\\1+`, 'gi');
+        cleaned = cleaned.replace(pattern, '$1');
+      }
+      cleaned = cleaned.replace(/\s+/g, ' ').trim();
+    }
+    return cleaned;
+  };
+
   const startListening = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
@@ -56,19 +76,29 @@ export default function MeetingPage() {
     rec.interimResults = true;
     rec.maxAlternatives = 1;
 
-    let finalBuffer = '';
+    // Track finals by their result index so we OVERWRITE on re-emit instead of appending.
+    const finalsByIndex = {};
+
+    const buildText = (includeInterim) => {
+      const finals = Object.keys(finalsByIndex)
+        .map(Number)
+        .sort((a, b) => a - b)
+        .map((k) => finalsByIndex[k])
+        .join(' ');
+      return dedupeText(includeInterim ? (finals + ' ' + includeInterim) : finals);
+    };
 
     rec.onresult = (event) => {
       let interim = '';
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const transcript = event.results[i][0].transcript;
         if (event.results[i].isFinal) {
-          finalBuffer += transcript + ' ';
+          finalsByIndex[i] = transcript;
         } else {
-          interim += transcript;
+          interim += transcript + ' ';
         }
       }
-      setInterimGerman(finalBuffer + interim);
+      setInterimGerman(buildText(interim));
     };
 
     rec.onerror = (event) => {
@@ -79,7 +109,7 @@ export default function MeetingPage() {
 
     rec.onend = async () => {
       setIsListening(false);
-      const finalText = finalBuffer.trim();
+      const finalText = buildText('').trim();
       if (finalText) {
         const id = Date.now();
         setHistory((h) => [{ id, german: finalText, english: '…', ts: id }, ...h].slice(0, 20));

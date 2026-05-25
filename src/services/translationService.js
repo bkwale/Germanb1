@@ -39,7 +39,15 @@ async function callClaude(systemPrompt, userPrompt) {
 
 export async function translateGermanToEnglish(germanText) {
   if (!germanText?.trim()) return '';
-  const system = `You are a real-time meeting interpreter. Translate German to natural, clear English. Output ONLY the translation — no preamble, no quotes, no notes. ${MEETING_CONTEXT}`;
+  const system = `You are a real-time meeting interpreter. Translate German to natural, clear English.
+
+STRICT OUTPUT RULES:
+- Output ONLY the English translation. No preamble, no quotes, no notes, no meta-commentary.
+- If the input is empty, garbled, repetitive nonsense, or untranslatable, output EXACTLY: [Unclear audio — try again]
+- Do NOT explain yourself. Do NOT apologise. Do NOT describe the input.
+- Maximum length: the length of a natural translation. No essays.
+
+${MEETING_CONTEXT}`;
   return callClaude(system, germanText);
 }
 
