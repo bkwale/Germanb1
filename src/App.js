@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { AppProvider } from './contexts/AppContext';
 import HomePage from './pages/HomePage';
 import LessonPage from './pages/LessonPage';
@@ -33,6 +34,7 @@ function App() {
           </Routes>
           <InstallPrompt />
         </div>
+        <Analytics />
       </Router>
     </AppProvider>
   );
